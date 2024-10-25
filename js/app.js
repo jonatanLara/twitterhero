@@ -1,7 +1,12 @@
 
+var url = window.location.href;
+var swLocation = '/twitterhero/sw.js' // en produccion
+
 if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('/sw.js');
-    console.log('Service Worker registrado!');
+    if (url.includes('localhost')) {
+        swLocation = '/sw.js'
+    }
+    navigator.serviceWorker.register(swLocation);
 }
 console.log("hola")
 // Referencias de jQuery
